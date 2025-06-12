@@ -13,12 +13,12 @@ import LogoCutted from "@/assets/logo-cutted.svg"
     <section>
       <picture
         id="hero-key"
-        class="h-screen scale-125 block overflow-hidden fixed"
+        class="h-screen scale-125 translate-x-40 translate-y-5 block overflow-hidden fixed"
       >
         <img
           id="hero-key-logo"
           src={HeroKeyLogo.src}
-          class="absolute w-full h-full object-cover"
+          class="absolute w-full h-full object-cover drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#fff]"
         />
         <img
           id="hero-key-background"
@@ -32,11 +32,11 @@ import LogoCutted from "@/assets/logo-cutted.svg"
   <div
     class="fixed flex flex-col items-center justify-between h-screen px-20 py-16 w-full"
   >
-    <header class="flex justify-between w-full">
+    <!-- <header class="flex justify-between w-full">
       <LogoVI
         class="size-11 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"
       />
-    </header>
+    </header> -->
 
     <button class="absolute inset-0 m-auto cursor-pointer inline-block">
       <PlayButtonIcon
@@ -45,7 +45,7 @@ import LogoCutted from "@/assets/logo-cutted.svg"
       />
     </button>
 
-    <footer id="hero-footer" class="absolute bottom-8 m-auto">
+    <!-- <footer id="hero-footer" class="absolute bottom-8 m-auto">
       <LogoCutted
         class="text-white w-38 drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000]"
       />
@@ -54,7 +54,7 @@ import LogoCutted from "@/assets/logo-cutted.svg"
       >
         Ver el Tráiler 2
       </span>
-    </footer>
+    </footer> -->
   </div>
 </Layout>
 
@@ -62,9 +62,9 @@ import LogoCutted from "@/assets/logo-cutted.svg"
   #logo-mask {
     background: white;
     mask-image: url("/logo-stack.svg");
-    mask-position: center 25%;
+    mask-position: center 75%;
     mask-repeat: no-repeat;
-    mask-size: clamp(5000vh, 3500%, 0vh);
+    mask-size: clamp(25000vh, 3500%, 0vh);
   }
 </style>
 
@@ -81,14 +81,14 @@ import LogoCutted from "@/assets/logo-cutted.svg"
     },
   })
 
-  tl.to("#hero-key", { duration: 1, scale: 1 })
+  tl.to("#hero-key", { duration: 1, scale: 1.1 })
     .to("#hero-key-logo", { opacity: 0 }, "<")
     .to("#hero-footer", { opacity: 0 }, "<")
     .to("#hero-play-button", { opacity: 0 }, "<")
     .to(
       "#logo-mask",
       {
-        maskSize: "clamp(20vh, 25%, 30vh)",
+        maskSize: "clamp(20vh, 50%, 75vh)"
       },
       0.15
     )
@@ -99,5 +99,12 @@ import LogoCutted from "@/assets/logo-cutted.svg"
         duration: 0.2,
       },
       0.4
+    )
+    .to(
+      "#logo-mask",
+      {
+        maskPosition: "10% center"
+      },
+      0.6
     )
 </script>
